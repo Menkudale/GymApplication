@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { ActivityIndicator, View, StyleSheet } from 'react-native';
+import { ActivityIndicator, View, StyleSheet, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import AuthStack from './src/navigation/AuthStack';
-import SuperAdminStack from './src/navigation/SuperAdminStack';
-import NormalAdminStack from './src/navigation/NormalAdminStack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AuthContext } from './src/context/AuthContext'; // Custom Auth Context
+import AuthStack from './src/navigation/AuthStack';
+import SuperAdminStack from './src/screens/SuperAdmin/SuperAdminPanel';
+import NormalAdminStack from './src/screens/NormalAdmin/NormalAdminPanel';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -63,20 +63,21 @@ const App = () => {
 
   console.log('Rendering App: userToken =', userToken, ', userRole =', userRole);
   return (
-    <View style={{ flex: 1 }}>
-      Hello, this is the App component!
-      </View>
-    // <AuthContext.Provider value={authContext}>
-    //   <NavigationContainer>
-    //     {userToken == null ? (
-    //       (() => { console.log('Rendering AuthStack'); return <AuthStack /> })()
-    //     ) : userRole === 'super_admin' ? (
-    //       (() => { console.log('Rendering SuperAdminStack'); return <SuperAdminStack /> })()
-    //     ) : (
-    //       (() => { console.log('Rendering NormalAdminStack'); return <NormalAdminStack /> })()
-    //     )}
-    //   </NavigationContainer>  
-    // </AuthContext.Provider>
+    // <View style={{ flex: 1 }}>
+    //   <Text >Hello, this is the App component!</Text>
+    //   </View>
+    <AuthContext.Provider value={authContext}>
+      <NavigationContainer>
+        {userToken == null ? (
+          (() => { console.log('Rendering AuthStack'); return <AuthStack /> })()
+        ) : userRole === 'super_admin' ? (
+          (() => { console.log('Rendering SuperAdminStack'); return <SuperAdminStack /> })()
+        ) : (
+          (() => { console.log('Rendering NormalAdminStack'); return <NormalAdminStack /> })()
+        )}
+        
+      </NavigationContainer>  
+    </AuthContext.Provider>
   );
 };
 

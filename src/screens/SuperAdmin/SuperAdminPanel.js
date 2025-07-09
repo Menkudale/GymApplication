@@ -1,9 +1,9 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer'; // For drawer navigation
-import DashboardScreen from '../screens/SuperAdmin/DashboardScreen';
-import BranchManagementScreen from '../screens/SuperAdmin/BranchManagementScreen';
-import AdminManagementScreen from '../screens/SuperAdmin/AdminManagementScreen';
-import CustomDrawerContent from './CustomDrawerContent'; // Create this component
+import DashboardScreen from './DashboardScreen';
+import BranchManagementScreen from './BranchManagementScreen';
+import AdminManagementScreen from './AdminManagementScreen';
+import CustomDrawerContent from '../../navigation/CustomDrawerContent';
 
 const Drawer = createDrawerNavigator();
 

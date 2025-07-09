@@ -1,8 +1,8 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import ComplaintListScreen from '../screens/NormalAdmin/ComplaintListScreen';
-import ComplaintDetailScreen from '../screens/NormalAdmin/ComplaintDetailScreen';
-import CustomDrawerContent from './CustomDrawerContent'; // Re-use the same drawer component
+import CustomDrawerContent from '../../navigation/CustomDrawerContent';
+import ComplaintListScreen from './ComplaintListScreen';
+import ComplaintDetailScreen from './ComplaintDetailScreen';
 
 const Drawer = createDrawerNavigator();
 
